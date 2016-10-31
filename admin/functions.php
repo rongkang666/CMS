@@ -137,10 +137,17 @@ function insert_categories(){
     } else {
 
 
-    $query = "INSERT INTO categories(cat_title) ";
-    $query .= "VALUES('{$cat_title}') ";
-    $create_category_query = mysqli_query($connection, $query);
-        if(!$create_category_query) {
+
+
+
+    $stmt = mysqli_prepare($connection, "INSERT INTO categories(cat_title) VALUES(?) ");
+
+    mysqli_stmt_bind_param($stmt, 's', $cat_title);
+
+    mysqli_stmt_execute($stmt);
+
+
+        if(!$stmt) {
         die('QUERY FAILED'. mysqli_error($connection));
         
                   }

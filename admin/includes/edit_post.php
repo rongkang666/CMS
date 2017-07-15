@@ -37,7 +37,7 @@
         $post_content        =  escape($_POST['post_content']);
         $post_tags           =  escape($_POST['post_tags']);
         
- move_uploaded_file($post_image_temp, "../images/$post_image"); 
+        move_uploaded_file($post_image_temp, "../images/$post_image"); 
         
         if(empty($post_image)) {
         

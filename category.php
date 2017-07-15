@@ -25,11 +25,15 @@
 
 
 
-    if(is_admin($_SESSION['username'])) {
+
+if(isset($_SESSION['username']) && is_admin($_SESSION['username'])){
 
 
 
-        $stmt1 = mysqli_prepare($connection, "SELECT post_id, post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_category_id = ?");
+
+
+      $stmt1 = mysqli_prepare($connection, "SELECT post_id, post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_category_id = ?");
+
 
 
 
@@ -68,17 +72,20 @@
 
 
 
-    if(mysqli_stmt_num_rows($stmt) === 0) {
+    // if(mysqli_stmt_num_rows($stmt) < 1) {
 
 
 
-         echo "<h1 class='text-center'>No Categories available</h1>";
+         // echo "<h1 class='text-center'>No Post available for this category</h1>";
 
 
 
-    } 
+    // } else 
 
-    while(mysqli_stmt_fetch($stmt)):
+
+
+
+    while(mysqli_stmt_fetch($stmt)){
        
         
         ?>
@@ -105,8 +112,7 @@
 
                 <hr>
                 
-
-   <?php endwhile;  } else {
+   <?php }    }  else {
 
 
 
@@ -120,9 +126,7 @@
                 
                 
                 
-                
-
-              
+          
     
 
             </div>

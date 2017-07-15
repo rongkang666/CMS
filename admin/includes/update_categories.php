@@ -48,6 +48,8 @@
                       
                       }
 
+                      mysqli_stmt_close($stmt);
+
 
                      redirect("categories.php");
           

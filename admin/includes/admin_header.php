@@ -68,11 +68,18 @@ header("location: ../index.php");
 
  
  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
- 
+
+
+
  <script src="http://tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+
+    <!-- Can use this one below as well -->
+<!--   <script src="http://cdn.tinymce.com/4/tinymce.min.js"></script> -->
 
 
 <script src="js/jquery.js"></script>
+
+
  
 
 

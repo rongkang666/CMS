@@ -105,7 +105,9 @@ confirmQuery($update_to_delete);
   <?php 
     
     $query = "SELECT * FROM comments";
-    $select_comments = mysqli_query($connection,$query);  
+
+    $select_comments = mysqli_query($connection,$query);
+//    $select_comments=  mysqli_query($connection,$query);
 
     while($row = mysqli_fetch_assoc($select_comments)) {
         $comment_id          = $row['comment_id'];

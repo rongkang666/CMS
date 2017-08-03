@@ -5,19 +5,24 @@
         if(ifItIsMethod('post')){
 
 
-            if(isset($_POST['username']) && isset($_POST['password'])){
-
-                login_user($_POST['username'], $_POST['password']);
+                if(isset($_POST['login'])){
 
 
-            }else {
+                    if(isset($_POST['username']) && isset($_POST['password'])){
+
+                        login_user($_POST['username'], $_POST['password']);
 
 
-                redirect('index');
-            }
+                    }else {
+
+
+                        redirect('index');
+                    }
+
+
+                }
 
         }
-
 
 ?>
 
@@ -92,12 +97,7 @@
                 
                 
                 
-                
-                
-                
-                
-        
-            
+
                 <!-- Blog Categories Well -->
                 <div class="well">
                   

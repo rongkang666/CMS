@@ -126,78 +126,72 @@
 
 <?php 
 
-if(isset($_POST['create_comment'])) {
+    if(isset($_POST['create_comment'])) {
 
-$the_post_id = $_GET['p_id'];
-$comment_author = $_POST['comment_author'];
-$comment_email = $_POST['comment_email'];
-$comment_content = $_POST['comment_content'];
-
-
-if(!empty($comment_author) && !empty($comment_email) && !empty($comment_content) ) {
+        $the_post_id = $_GET['p_id'];
+        $comment_author = $_POST['comment_author'];
+        $comment_email = $_POST['comment_email'];
+        $comment_content = $_POST['comment_content'];
 
 
-$query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
-
-$query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content }', 'unapproved',now())";
-        
-$create_comment_query = mysqli_query($connection,$query);
-
-if(!$create_comment_query ){
-die('QUERY FAILED' . mysqli_error($connection));
+        if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
 
 
+            $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
+
+            $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content }', 'unapproved',now())";
+
+            $create_comment_query = mysqli_query($connection, $query);
+
+            if (!$create_comment_query) {
+                die('QUERY FAILED' . mysqli_error($connection));
 
 
-} else {
-
-echo "<script>alert('Fields cannot be empty')</script>";
+            }
 
 
-
-}
-
+        }
 
 
-}
-
-
-
+    }
 
 
 
 
 ?> 
 
-                <!-- Comments Form -->
-                <div class="well">
-                   
-                   
-                 
-                    <h4>Leave a Comment:</h4>
-                    <form action="#" method="post" role="form">
-                      
-                        <div class="form-group">
-                         <label for="Author">Author</label>
-                          <input type="text" name="comment_author" class="form-control" name="comment_author">
-                        </div>
-                        
-                         <div class="form-group">
-                         <label for="Author">Email</label>
-                          <input type="email" name="comment_email" class="form-control" name="comment_email">
-                        </div>
-                       
-                        <div class="form-group">
-                            <label for="comment">Your Comment</label>
-                            <textarea name="comment_content" class="form-control" rows="3"></textarea>
-                        </div>
-                        <button type="submit" name="create_comment" class="btn btn-primary">Submit</button>
-                    </form>
-                </div>
-
-                <hr>
 
                 <!-- Posted Comments -->
+
+
+
+        <!-- Comments Form -->
+        <div class="well">
+
+
+
+            <h4>Leave a Comment:</h4>
+            <form action="#" method="post" role="form">
+
+                <div class="form-group">
+                    <label for="Author">Author</label>
+                    <input type="text" name="comment_author" class="form-control" name="comment_author">
+                </div>
+
+                <div class="form-group">
+                    <label for="Author">Email</label>
+                    <input type="email" name="comment_email" class="form-control" name="comment_email">
+                </div>
+
+                <div class="form-group">
+                    <label for="comment">Your Comment</label>
+                    <textarea name="comment_content" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" name="create_comment" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <hr>
                 
                  <?php 
 
@@ -237,7 +231,7 @@ echo "<script>alert('Fields cannot be empty')</script>";
                 
   
 
-           <?php } } } else {
+           <?php } }    else {
 
 
             header("Location: index.php");

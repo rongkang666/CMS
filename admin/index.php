@@ -298,7 +298,7 @@ $subscriber_count = mysqli_num_rows($select_all_subscribers);
             $(document).ready(function(){
 
 
-              var pusher =   new Pusher('a202fba63a209863ab62', {
+              var pusher =   new Pusher('5a3f3c2f772965086cb9', {
 
                   cluster: 'us2',
                   encrypted: true
@@ -323,8 +323,3 @@ $subscriber_count = mysqli_num_rows($select_all_subscribers);
 
 
         </script>
-
-
-
-
-

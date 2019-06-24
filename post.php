@@ -30,7 +30,7 @@
 
         mysqli_stmt_execute($update_statement);
 
-        // mysqli_stmt_bind_result($stmt1, $post_id, $post_title, $post_author, $post_date, $post_image, $post_content);
+        // mysqli_stmt_bind_result($stmt1, $post_id, $post_title, $post_user, $post_date, $post_image, $post_content);
     
 
 
@@ -43,11 +43,11 @@
     if(isset($_SESSION['username']) && is_admin($_SESSION['username']) ) {
 
 
-         $stmt1 = mysqli_prepare($connection, "SELECT post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_id = ?");
+         $stmt1 = mysqli_prepare($connection, "SELECT post_title, post_user, post_date, post_image, post_content FROM posts WHERE post_id = ?");
 
 
     } else {
-        $stmt2 = mysqli_prepare($connection , "SELECT post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_id = ? AND post_status = ? ");
+        $stmt2 = mysqli_prepare($connection , "SELECT post_title, post_user, post_date, post_image, post_content FROM posts WHERE post_id = ? AND post_status = ? ");
 
         $published = 'published';
 
@@ -63,7 +63,7 @@
 
         mysqli_stmt_execute($stmt1);
 
-        mysqli_stmt_bind_result($stmt1, $post_title, $post_author, $post_date, $post_image, $post_content);
+        mysqli_stmt_bind_result($stmt1, $post_title, $post_user, $post_date, $post_image, $post_content);
 
       $stmt = $stmt1;
 
@@ -75,7 +75,7 @@
 
         mysqli_stmt_execute($stmt2);
 
-        mysqli_stmt_bind_result($stmt2, $post_title, $post_author, $post_date, $post_image, $post_content);
+        mysqli_stmt_bind_result($stmt2, $post_title, $post_user, $post_date, $post_image, $post_content);
 
      $stmt = $stmt2;
 
@@ -100,7 +100,7 @@
                     <a href="#"><?php echo $post_title ?></a>
                 </h2>
                 <p class="lead">
-                    by <a href="index.php"><?php echo $post_author ?></a>
+                    by <a href="index.php"><?php echo $post_user ?></a>
                 </p>
                 <p><span class="glyphicon glyphicon-time"></span> <?php echo $post_date ?></p>
                 <hr>

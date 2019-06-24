@@ -4,9 +4,9 @@
 
    if(isset($_POST['create_post'])) {
    
-            $post_title        = escape($_POST['title']);
+            $post_title        = escape($_POST['post_title']);
             $post_user         = escape($_POST['post_user']);
-            $post_category_id  = escape($_POST['post_category']);
+            $post_category_id  = escape($_POST['post_category_id']);
             $post_status       = escape($_POST['post_status']);
     
             $post_image        = escape($_FILES['image']['name']);
@@ -48,12 +48,12 @@
      
       <div class="form-group">
          <label for="title">Post Title</label>
-          <input type="text" class="form-control" name="title">
+          <input type="text" class="form-control" name="post_title">
       </div>
 
          <div class="form-group">
        <label for="category">Category</label>
-       <select name="post_category" id="">
+       <select name="post_category_id" id="">
            
 <?php
 
@@ -143,7 +143,7 @@
       
       <div class="form-group">
          <label for="post_content">Post Content</label>
-         <textarea class="form-control "name="post_content" id="" cols="30" rows="10">
+         <textarea class="form-control "name="post_content" id="body" cols="30" rows="10">
          </textarea>
       </div>
       

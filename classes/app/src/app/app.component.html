@@ -1,0 +1,41 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <ul class="list-group">
+    <li class="list-group-item"><a routerLink="/">App</a></li>
+    <li class="list-group-item"><a routerLink="/post">Post</a></li>
+    <li class="list-group-item"><a routerLink="/user">User</a></li>
+    <li class="list-group-item"><a routerLink="/form">Form</a></li>
+  </ul>
+
+
+
+
+  <app-post [content]='title' (valueChange)='displayCounter($event)' (valueChange2)='displayCounter2($event)'>
+  <p>something under the following</p>
+  </app-post>
+  <app-user></app-user>
+
+  {{appContent}}
+  <br>
+  {{appContent2}}
+  <br>
+  <div *ngFor="let data of appdata"
+
+  >
+  {{data.name}}
+  {{data.age}}
+    <br>
+  </div>
+  <router-outlet></router-outlet>
+</body>
+</html>
+

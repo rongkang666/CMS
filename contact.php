@@ -16,19 +16,8 @@ $body       = $_POST['body'];
 }
 
 
-
-
-
-
-
-
 ?>
- 
- 
- 
- 
- 
- 
+
 
     <!-- Navigation -->
     

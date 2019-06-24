@@ -1,34 +1,40 @@
-tinymce.init({selector:'textarea'});
-
 $(document).ready(function(){
+      
+    // EDITOR CKEDITOR
+        ClassicEditor
+        .create( document.querySelector( '#body' ) )
+        .catch( error => {
+            console.error( error );
+        } );
 
-	$('#selectAllBoxes').click(function(event){
-
-	if(this.checked) {
-
-	$('.checkBoxes').each(function(){
-
-	    this.checked = true;
-
-	});
-
-} else {
-
-
-	$('.checkBoxes').each(function(){
-
-	    this.checked = false;
-
-	});
-
-
-	}
-
-	});
+      
+      // REST OF THE CODE
 
 
 
+    $('#selectAllBoxes').click(function(event){
 
+        if(this.checked) {
+
+            $('.checkBoxes').each(function(){
+
+                this.checked = true;
+
+            });
+
+        } else {
+
+
+            $('.checkBoxes').each(function(){
+
+                this.checked = false;
+
+            });
+
+
+        }
+
+    });
 
 
 
@@ -41,40 +47,28 @@ $(document).ready(function(){
 // });
 
 
+    function loadUsersOnline() {
+
+
+        $.get("functions.php?onlineusers=result", function(data){
+
+            $(".usersonline").text(data);
+
+
+        });
+
+    }
+
+
+    setInterval(function(){
+
+        loadUsersOnline();
+
+
+    },500);
+
 
 });
-
-
-function loadUsersOnline() {
-
-
-	$.get("functions.php?onlineusers=result", function(data){
-
-		$(".usersonline").text(data);
-
-
-	});
-
-
-
-}
-
-
-setInterval(function(){
-
-	loadUsersOnline();
-
-
-},500);
-
-
-
-
-
-
-
-
-
 
 
 

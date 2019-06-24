@@ -1,0 +1,14 @@
+<p>
+  post works! {{content}}
+</p>
+<label for="">first input</label>
+<input type="text" #inputvalue>
+<br>
+<label>second input</label>
+<input type="text" #otherinput>
+<button class='btn btn-primary' (click)="valueChanged(inputvalue)" (click)="valueChanged2()">Click me</button>
+
+<h1>the following</h1>
+<hr>
+
+<ng-content></ng-content>
